@@ -65,6 +65,7 @@ with DAG('user_automation',
         schedule_interval='@daily',
         catchup=False) as dag:
     
+    #task 1 - Stream data from API to Kafka
     streaming_task = PythonOperator(
         task_id='stream_data_from_api',
         python_callable=lambda: print("Streaming data from API...")
